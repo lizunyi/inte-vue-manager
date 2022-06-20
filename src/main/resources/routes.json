@@ -1,6 +1,6 @@
 [
   {
-    "path": "/",
+    "path": "",
     "name": "order_manager",
     "hidden": false,
     "component": "Layout",
@@ -29,7 +29,7 @@
     ]
   },
   {
-    "path": "/",
+    "path": "",
     "name": "invoice_manager",
     "hidden": false,
     "component": "Layout",
