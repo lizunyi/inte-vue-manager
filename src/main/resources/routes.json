@@ -1,0 +1,51 @@
+[
+  {
+    "path": "/",
+    "name": "order_manager",
+    "hidden": false,
+    "component": "Layout",
+    "meta": {
+      "title": "订单管理"
+    },
+    "children": [
+      {
+        "path": "/index",
+        "hidden": false,
+        "component": "index",
+        "meta": {
+          "title": "机票订单"
+        },
+        "name": "index"
+      },
+      {
+        "path": "/train",
+        "hidden": false,
+        "component": "train",
+        "meta": {
+          "title": "火车票订单"
+        },
+        "name": "train"
+      }
+    ]
+  },
+  {
+    "path": "/",
+    "name": "invoice_manager",
+    "hidden": false,
+    "component": "Layout",
+    "meta": {
+      "title": "发票管理"
+    },
+    "children": [
+      {
+        "path": "/invoice",
+        "hidden": false,
+        "component": "invoice",
+        "meta": {
+          "title": "发票列表"
+        },
+        "name": "invoice"
+      }
+    ]
+  }
+]

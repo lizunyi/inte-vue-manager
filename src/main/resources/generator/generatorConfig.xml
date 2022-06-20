@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- 引入配置文件 -->
+    <properties resource="generator\jdbc.properties"/>
+
+    <!-- 指定数据连接驱动jar地址 -->
+    <classPathEntry location="${driver.location}"/>
+
+    <!-- 有Example查询条件内容扩展版-->
+    <context id="trip" targetRuntime="MyBatis3Simple">
+        <!-- xml覆盖 -->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.himyidea.hotel.config.MyBaseMapper"/>
+        </plugin>
+        <!-- 注释 -->
+        <commentGenerator>
+            <property name="suppressDate" value="false"/><!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/><!-- 是否生成注释代时间戳-->
+        </commentGenerator>
+        <!-- jdbc连接 -->
+        <jdbcConnection driverClass="${db.driver}" connectionURL="${db.url}" userId="${db.username}"
+                        password="${db.password}">
+            <property name="useInformationSchema" value="true"/>
+            <property name="remarks" value="true"/>
+        </jdbcConnection>
+        <!-- 类型转换 -->
+        <javaTypeResolver>
+            <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成实体类地址 -->
+        <javaModelGenerator targetPackage="com.himyidea.hotel.dao.data" targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+            <property name="" value="true"/>
+        </javaModelGenerator>
+
+        <table tableName="hh_hotel_lowprice_dd" domainObjectName="HotelLowpricedd"
+               mapperName="HotelLowpriceCompanyAllMapper"/>
+    </context>
+</generatorConfiguration>

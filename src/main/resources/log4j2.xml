@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <property name="loggingRoot">
+            /usr/local/logs/vue-manager
+        </property>
+        <property name="log_pattern">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} %-5p [%t] %-17c{2}:%L -
+            [%X{MDC_REQUEST_ID}]-[%X{MDC_SESSION}]-[%X{MDC_CLIENT_IP}]-[%X{MDC_SERVER_IP}]-[%X{MDC_USER_ID}]-[%X{MDC_USER_MOBILE}]-[%X{MDC_USER_NICKNAME}]
+            %m%n
+        </property>
+        <property name="every_file_size">100MB</property>
+    </Properties>
+
+    <Appenders>
+        <RollingFile name="common-default-rolling" fileName="${loggingRoot}/common-default.log"
+                     filePattern="${loggingRoot}/common-default-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${log_pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+            </Policies>
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="accept" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+
+        <RollingFile name="aggr-log-rolling" fileName="${loggingRoot}/aggr-log.log"
+                     filePattern="${loggingRoot}/aggr-log-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${log_pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+            </Policies>
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="accept" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+
+        <RollingFile name="common-error-rolling" fileName="${loggingRoot}/common-error.log"
+                     filePattern="${loggingRoot}/common-error-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${log_pattern}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1"/>
+            </Policies>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+        <root level="INFO">
+            <appender-ref ref="common-default-rolling"></appender-ref>
+        </root>
+        <logger name="common-error" level="INFO">
+            <appender-ref ref="common-error-rolling"></appender-ref>
+        </logger>
+
+    </Loggers>
+</Configuration>
