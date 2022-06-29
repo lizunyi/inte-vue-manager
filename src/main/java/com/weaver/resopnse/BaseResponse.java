@@ -1,5 +1,7 @@
 package com.weaver.resopnse;
 
+import com.alibaba.fastjson.JSON;
+
 public class BaseResponse {
     private int code = 0;
     private String msg;
@@ -59,5 +61,10 @@ public class BaseResponse {
 
     public void setData(Object data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return JSON.toJSONString(this);
     }
 }

@@ -11,10 +11,10 @@
     <classPathEntry location="${driver.location}"/>
 
     <!-- 有Example查询条件内容扩展版-->
-    <context id="trip" targetRuntime="MyBatis3Simple">
+    <context id="wiki" targetRuntime="MyBatis3Simple">
         <!-- xml覆盖 -->
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.himyidea.hotel.config.MyBaseMapper"/>
+            <property name="mappers" value="com.weaver.config.MyBaseMapper"/>
         </plugin>
         <!-- 注释 -->
         <commentGenerator>
@@ -33,13 +33,13 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!-- 生成实体类地址 -->
-        <javaModelGenerator targetPackage="com.himyidea.hotel.dao.data" targetProject=".\src\main\java">
+        <javaModelGenerator targetPackage="com.weaver.database.data" targetProject=".\src\main\java">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
             <property name="" value="true"/>
         </javaModelGenerator>
 
-        <table tableName="hh_hotel_lowprice_dd" domainObjectName="HotelLowpricedd"
-               mapperName="HotelLowpriceCompanyAllMapper"/>
+        <table tableName="t_menu" domainObjectName="Menu" mapperName="MenuMapper"/>
+        <table tableName="t_module" domainObjectName="Module" mapperName="ModuleMapper"/>
     </context>
 </generatorConfiguration>
